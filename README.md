@@ -23,6 +23,7 @@ He provides some utility command that are... useful.
 - **|wizz <member>**: Wizz someone (Only works if you have the correct admin rights)  
 - **|purge**: Clean a chat with the power of the holy flamethrower  
 - **|random <choice1> <choice2>**: Choose between the options  
+- **|help**: Display all the commands available  
 
 ## License
 
