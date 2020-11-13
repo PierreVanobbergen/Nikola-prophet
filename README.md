@@ -18,11 +18,11 @@ He provides some utility command that are... useful.
 
 ## Commands
 
-**|niko <member>** : Display the words of Holiness for someone
-**|playniko <member>**: (Broken) Join the voice channel and say the holy sentence to someone
-**|wizz <member>**: Wizz someone (Only works if you have the correct admin rights)
-**|purge**: Clean a chat with the power of the holy flamethrower
-**|random <choice1> <choice2>**: Choose between the options
+- **|niko <member>** : Display the words of Holiness for someone
+- **|playniko <member>**: (Broken) Join the voice channel and say the holy sentence to someone
+- **|wizz <member>**: Wizz someone (Only works if you have the correct admin rights)
+- **|purge**: Clean a chat with the power of the holy flamethrower
+- **|random <choice1> <choice2>**: Choose between the options
 
 ## License
 
