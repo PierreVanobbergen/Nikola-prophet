@@ -1,4 +1,4 @@
-# How to Build Your First Discord Bot with Node.js
+# Prophet Nikola
 
 Prophet Nikola is a wondeful Discord Bot that will bring sunshine and holiness into your server
 
