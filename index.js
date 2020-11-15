@@ -17,7 +17,8 @@ let actions = {
   "|purge" : func.purge,
   "|random" : func.random,
   "|wizz" : func.wizz,
-  "|help" : func.help
+  "|help" : func.help,
+  "|partpoll" : func.partpoll
 
 }
 
