@@ -17,7 +17,7 @@ function help(bot, msg) {
             { name: "**|playniko <member>**", value: "(Broken) Join the voice channel and say the holy sentence to someone" },
             { name: "**|wizz <member>**", value: "Wizz someone (Only works if you have the correct admin rights)" },
             { name: "**|purge**", value: "Clean a chat with the power of the holy flamethrower" },
-            { name: "**|random <choice1> <choice2>**", value: "Choose between the options" },
+            { name: "**|random <choice1> <choice2> ...**", value: "Choose between the options" },
             { name: "**|partpoll \"<title>\" <max people> <milliseconds>**", value: "Create a participation poll, anyone who react to the message will be added to the list" }
         );
     msg.channel.send(embed);

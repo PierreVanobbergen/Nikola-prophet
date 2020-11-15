@@ -18,12 +18,12 @@ He provides some utility command that are... useful.
 
 ## Commands
 
-- **|partpoll \"<title>\" <max people> <milliseconds>** Create a participation poll, anyone who react to the message will be added to the list
+- **|partpoll \"<title>\" \<max people\> \<milliseconds\>** Create a participation poll, anyone who react to the message will be added to the list
 - **|niko <member>** : Display the words of Holiness for someone  
 - **|playniko <member>**: (Broken) Join the voice channel and say the holy sentence to someone  
 - **|wizz <member>**: Wizz someone (Only works if you have the correct admin rights)  
 - **|purge**: Clean a chat with the power of the holy flamethrower  
-- **|random <choice1> <choice2>**: Choose between the options  
+- **|random \<choice1\> \<choice2\>**: Choose between the options  
 - **|help**: Display all the commands available  
 
 ## License
