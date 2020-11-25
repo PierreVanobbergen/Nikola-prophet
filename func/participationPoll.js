@@ -20,14 +20,16 @@ function partPoll(bot, msg) {
             let name = "<@" + collector.id + ">";
             if(!collector.bot){
                 reaction.message.edit(reaction.message.content + "\n- " + name);
-                setTimeout(() => {
+                setTimeout(async () => {
                     let upd = options[0];
                     let speReact = value.reactions.cache.find((react) => react.emoji.name === "👍");
                     let users = await speReact.users.fetch();
                     users.forEach((user) => {
-                        upd += "\n- <@" + user.id + ">"
+                        if(!user.bot){
+                            upd += "\n- <@" + user.id + ">";
+                        }
                     });
-                    reaction.message.edit(upd + "test");
+                    reaction.message.edit(upd);
                 }, 10000)
             }
         });
