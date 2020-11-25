@@ -13,19 +13,20 @@ function partPoll(bot, msg) {
     options = options.concat(numbers);
     let newMsg = new Message(bot, { content: options[0] }, msg.channel);
     msg.delete();
-    msg.channel.send(newMsg).then(value => {
+    msg.channel.send(newMsg).then(async value => {
         value.react('👍');
-        let collector = value.createReactionCollector(filter, {max: parseInt(options[1]) + 1, time : parseInt(options[2]), dispose: true});
-        collector.on('collect', (reaction, collector) => {
+        let collector = value.createReactionCollector(filter, { max: parseInt(options[1]) + 1, time: parseInt(options[2]) * 1000 * 60 * 60, dispose: true });
+        collector.on('collect', async (reaction, collector) => {
             let name = "<@" + collector.id + ">";
-            if(!collector.bot){
+            if (!collector.bot) {
+                await reaction.message.reactions.resolve("👍").users.remove(bot.user.id);
                 reaction.message.edit(reaction.message.content + "\n- " + name);
                 setTimeout(async () => {
                     let upd = options[0];
                     let speReact = value.reactions.cache.find((react) => react.emoji.name === "👍");
                     let users = await speReact.users.fetch();
                     users.forEach((user) => {
-                        if(!user.bot){
+                        if (!user.bot) {
                             upd += "\n- <@" + user.id + ">";
                         }
                     });
@@ -33,10 +34,16 @@ function partPoll(bot, msg) {
                 }, 10000)
             }
         });
-        collector.on("remove", (reaction, collector) => {
-            let name = "<@" + collector.id + ">";
-            let replaced = reaction.message.content.replace(new RegExp(escapeRegex("\n- " + name), "gi"), "");
-            reaction.message.edit(replaced);
+        collector.on("remove", async (reaction, collector) => {
+            if (!collector.bot) {
+                let name = "<@" + collector.id + ">";
+                console.log(reaction.users.cache);
+                if (!Object.keys(reaction.users.cache).length) {
+                    reaction.message.react("👍");
+                }
+                    let replaced = reaction.message.content.replace(new RegExp(escapeRegex("\n- " + name), "gi"), "");
+                    reaction.message.edit(replaced);
+            }
         })
     });
 }
