@@ -18,8 +18,17 @@ function partPoll(bot, msg) {
         let collector = value.createReactionCollector(filter, {max: parseInt(options[1]) + 1, time : parseInt(options[2]), dispose: true});
         collector.on('collect', (reaction, collector) => {
             let name = "<@" + collector.id + ">";
-            if(collector.id !== value.author.id){
-                reaction.message.edit(reaction.message.content + "\n- " + name)
+            if(!collector.bot){
+                reaction.message.edit(reaction.message.content + "\n- " + name);
+                setTimeout(() => {
+                    let upd = options[0];
+                    let speReact = value.reactions.cache.find((react) => react.emoji.name === "👍");
+                    let users = await speReact.users.fetch();
+                    users.forEach((user) => {
+                        upd += "\n- <@" + user.id + ">"
+                    });
+                    reaction.message.edit(upd + "test");
+                }, 10000)
             }
         });
         collector.on("remove", (reaction, collector) => {
