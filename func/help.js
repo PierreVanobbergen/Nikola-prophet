@@ -6,6 +6,7 @@ const { MessageEmbed, Message, Client } = require("discord.js");
  * @param {Message} msg 
  */
 function help(bot, msg) {
+    let commandChar = msg.content.trim().split(' ')[0].substr(0,1);
     const embed = new MessageEmbed()
         .setAuthor("Prophet Nikola", "", "https://github.com/PierreVanobbergen")
         .setColor('#f58a42')
@@ -13,12 +14,13 @@ function help(bot, msg) {
         .setTitle("Prophet Nikola Commands")
         .setDescription('Here\'s the power that the Prophet currently has')
         .addFields(
-            { name: "**|niko <member>**", value: "Display the words of Holiness for someone" },
-            { name: "**|playniko <member>**", value: "(Broken) Join the voice channel and say the holy sentence to someone" },
-            { name: "**|wizz <member>**", value: "Wizz someone (Only works if you have the correct admin rights)" },
-            { name: "**|purge**", value: "Clean a chat with the power of the holy flamethrower" },
-            { name: "**|random <choice1> <choice2> ...**", value: "Choose between the options" },
-            { name: "**|partpoll \"<title>\" <max people> <hours>**", value: "Create a participation poll, anyone who react to the message will be added to the list" }
+            { name: `**${commandChar}niko <member>**`, value: "Display the words of Holiness for someone" },
+            { name: `**${commandChar}playniko <member>**`, value: "(Broken) Join the voice channel and say the holy sentence to someone" },
+            { name: `**${commandChar}wizz <member>**`, value: "Wizz someone (Only works if you have the correct admin rights)" },
+            { name: `**${commandChar}purge**`, value: "Clean a chat with the power of the holy flamethrower" },
+            { name: `**${commandChar}random <choice1> <choice2> ...**`, value: "Choose between the options" },
+            { name: `**${commandChar}partpoll \"<title>\" <max people> <hours>**`, value: "Create a participation poll, anyone who react to the message will be added to the list" },
+            { name: `**${commandChar}commandChar <character>**`, value: "Replace the command character by an other one" }
         );
     msg.channel.send(embed);
 }
