@@ -2,7 +2,7 @@ name: Executed every Friday
 
 on:
   schedule:
-  - cron: "0 9 * * 5"
+    - cron: "0 9 * * 5"
   # Trigger manually the script
   workflow_dispatch:
 
