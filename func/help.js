@@ -25,4 +25,8 @@ function help(bot, msg) {
     msg.channel.send(embed);
 }
 
-module.exports = help
+module.exports = {
+    name: "help",
+    usage: "niko <user>",
+    execute : help
+}

@@ -7,15 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "nodemonConfig": {
-    "ignore": ["config/*.json"]
+    "ignore": [
+      "config/*.json"
+    ]
   },
   "author": "Michiel Mulders",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
-    "discord.js": "github:discordjs/discord.js",
+    "@discordjs/opus": "^0.3.3",
+    "discord-player": "^3.4.0",
+    "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "node-opus": "^0.3.3",
+    "opusscript": "0.0.8",
     "say": "^0.16.0"
   }
 }

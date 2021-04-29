@@ -53,4 +53,8 @@ const filter = (reaction, user) => {
 function escapeRegex(string) {
     return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 }
-module.exports = partPoll;
+module.exports = {
+    name: "partpoll",
+    usage: "partpoll <user>",
+    execute : partPoll
+}

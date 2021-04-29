@@ -1,15 +1,12 @@
-let purge = require('./purge');
-let niko = require('./niko');
-let wizz = require('./wizz');
-let random = require('./random');
-let help = require('./help');
-let partpoll = require('./participationPoll');
+const fs = require('fs');
 
-module.exports = {
-    niko,
-    purge,
-    wizz,
-    random,
-    help,
-    partpoll
-};
+let commandList = {}
+
+const commandFiles = fs.readdirSync('./func').filter(file => file.endsWith('.js'));
+for (const file of commandFiles){
+    if (file == "index.js") continue;
+    const command = require(`./${file}`);
+    commandList[command.name] = command
+}
+
+module.exports = commandList

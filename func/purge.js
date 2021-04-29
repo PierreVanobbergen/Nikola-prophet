@@ -12,4 +12,8 @@ function purge(bot, msg) {
     }, 1000)
 }
 
-module.exports = purge;
+module.exports = {
+    name: "purge",
+    usage: "niko <user>",
+    execute : purge
+}

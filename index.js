@@ -1,9 +1,16 @@
 require('dotenv').config();
 const fs = require("fs");
 const func = require('./func/index');
-const Discord = require('discord.js');
-const bot = new Discord.Client();
+func.commandChar = commandCharFunc;
+
+const {Client, Intents} = require('discord.js');
+
+const bot = new Client();
 const TOKEN = process.env.TOKEN;
+
+const { Player } = require('discord-player');
+
+bot.player = new Player(bot);
 
 let commandCharList;
 
@@ -22,24 +29,19 @@ bot.on('ready', () => {
   }
 });
 
-let actions = {
-  [`niko`] : func.niko.niko,
-  [`playniko`] : func.niko.playNiko,
-  [`purge`] : func.purge,
-  [`random`] : func.random,
-  [`wizz`] : func.wizz,
-  [`help`] : func.help,
-  [`partpoll`] : func.partpoll,
-  [`commandChar`] : commandCharFunc
-}
+
 
 bot.on('message', msg => {
-  let commandChar = commandCharList[msg.guild.id] ?? "|"
+  let commandChar = commandCharList[msg.guild.id] ?? "|";
+
+  if (msg.author.bot || msg.channel.type === 'dm') return;
   if (!msg.content.startsWith(commandChar)) return;
+  console.log(func)
 
   let command = msg.content.trim().split(' ')[0].substring(1);
-  if(Object.keys(actions).find(elem => elem === command)){
-    actions[command](bot, msg);
+  console.log(command)
+  if(Object.keys(func).find(elem => elem === command)){
+    func[command].execute(bot, msg);
   }
 });
 

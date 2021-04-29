@@ -10,4 +10,8 @@ function random(bot, msg) {
     }
 }
 
-module.exports = random;
+module.exports = {
+    name: "random",
+    usage: "niko <user>",
+    execute : random
+}

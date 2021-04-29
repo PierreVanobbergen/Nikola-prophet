@@ -23,4 +23,8 @@ function wizz(bot, msg) {
     }
 }
 
-module.exports = wizz;
+module.exports = {
+    name: "wizz",
+    usage: "niko <user>",
+    execute : wizz
+}
