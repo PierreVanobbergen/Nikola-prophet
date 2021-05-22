@@ -5,8 +5,8 @@ const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const discordClient = new Discord.Client();
 
 discordClient.on('ready', async () => {
-  const channel = discordClient.channels.cache.find(ch => ch.name === 'test');
-  await channel.send({ file: "./wednesday_frog.jpg" });
+  const channel = discordClient.channels.cache.find(ch => ch.name === 'memes-shit');
+  await channel.send({ files: ['./wednesday_frog.jpg'] });
 
   process.exit()
 });
